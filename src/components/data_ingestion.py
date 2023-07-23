@@ -7,6 +7,8 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 
+
+
 @dataclass
 class DataIngestionConfig:
     train_data_path:str = os.path.join("artifacts","train.csv")
@@ -23,7 +25,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Data Ingestion starts")
         try:
-            df=pd.read_csv(os.path.join('notebooks/data','converted.csv'))
+            df=pd.read_csv(os.path.join('notebooks/data','final_converted.csv'))
             logging.info('Dataset read as pandas Dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
